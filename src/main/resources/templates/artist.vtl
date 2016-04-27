@@ -1,0 +1,9 @@
+<h1>Albums by $artistId.getArtist()</h1>
+
+  <ul>
+  #foreach($cd in $cds)
+      #if($cd.getArtist().equals($artistId.getArtist()))
+        <li>$cd.getName()</li>
+      #end
+  #end
+  </ul>

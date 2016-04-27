@@ -1,0 +1,23 @@
+#if ($cd)
+  <h1>$cd.getName()</h1>
+  <h3>$cd.getArtist()</h3>
+#else
+  <h1> CD not found </h1>
+#end
+#if($artists && $cd.getArtist().equals("Unknown"))
+<form action='/cdsupdated' method='post'>
+  <label for="artist" class="control-label">Add Artists:</label>
+      <select class="form-control" name="newartist">
+        #foreach($artist in $artists)
+        <option value="$artist.getArtist()">$artist.getArtist()</option>
+        #end
+      </select>
+      <div class="myhidden">
+        <input class="form-control" name="name" value="$cd.getName()" type="hidden">
+        <input class="form-control" name="id" value="$cd.getId()" type="hidden">
+      </div>
+      <button class="btn btn-lg" type="submit">Add!</button>
+</form>
+#end
+
+<a href="/cds/new">Add New CD</a>|<a href="/artists/new">Add New Artist</a>|<a href="/cds">All CDs</a>|<a href="/artists">All Artist</a>

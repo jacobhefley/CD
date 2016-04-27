@@ -1,0 +1,7 @@
+<h1> All CDs </h1>
+<ul>
+  #foreach ($cd in $cds)
+    <li><a href="/cds/$cd.getId()">$cd.getName()</a></li>
+  #end
+</ul>
+<a href="/cds/new">Add New CD</a>|<a href="/artists/new">Add New Artist</a>|<a href="/cds">All CDs</a>|<a href="/artists">All Artist</a>
